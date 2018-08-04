@@ -1,0 +1,17 @@
+#Detecting the opponents movements
+
+int values[10][10]={0}; #Storing the current grid values
+int row[10]={0};
+int column[10]={0};
+for(int i=0;i<10;i++){
+  int temp=0;
+  for(int j=0;j<10;j++){
+    values[i][j]=getgrid(i,j) #API call
+    temp=temp+values[i][j];
+    if(i>0){
+      column[j]=column[j]+values[i-1][j]+values[i][j]   #summation of column values
+      }
+    }
+    row[i]=temp #summation of row values
+    }
+    
