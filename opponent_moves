@@ -1,5 +1,15 @@
+struct playmoves{
+  int row[10];
+  int col[10];
+  };
+
+int round=0; #Global variable --To detect the round 
+
+
 #Detecting the opponents movements
 
+function(Evrytime called for the movement)
+-----------------
 int values[10][10]={0}; #Storing the current grid values
 int row[10]={0};
 int column[10]={0};
@@ -12,6 +22,43 @@ for(int i=0;i<10;i++){
       column[j]=column[j]+values[i-1][j]+values[i][j]   #summation of column values
       }
     }
-    row[i]=temp #summation of row values
+    row[i]=temp #summation of row values  
     }
+    
+    #Comparing with the previous moves to detect which moved
+    
+    int x=0;   # Temp variable 
+    int moveposY,moveposY1,moveposX,moveposX1;
+    bool moveY,moveX;
+    for(int i=0;i<10;i++){
+      if(round==0){
+        playmoves.row[i]=row[i];
+        playmoves.column[i]=column[i]
+        }
+       else{
+        if(playmoves.row[i]!=row[i]){
+          if(x=0){
+            moveposY=i;            #Detect the row which moved
+            x=1
+           }
+          else{
+            moveposY1=i;           #one row had been shifted
+            moveY=True             #Flag value to detect one row is moved
+            }
+           playmoves.row[i]=row[i];
+        }
+        if(playmoves.column[i]!=column[i]){
+          if(x=0){
+            moveposX=i;            #Detect the column which moved
+            x=1
+            }
+          else{
+            moveposX1=i;           #one column had been shifted
+            moveX=True             #Flag value to detect one column is moved
+            }
+            playmoves.column[i]=column[i]
+        }
+        
+     
+        
     
