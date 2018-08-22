@@ -6,6 +6,8 @@ if(g_master_grid[danger_position_x][danger_position_y].placedBy == g_opp_player)
                              ->9
                              ->1.5
                              ->10(need to change predictive_danger_count > 1)
+                               
+  //SET for all the movements
  //old code 
 }
 //Add this line before declaration of int final priority = 0;
