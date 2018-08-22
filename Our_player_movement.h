@@ -119,6 +119,66 @@ else{
       bombstatus[3] = 1;
     }
   }
+  
+  void checkOurPlayerinPredicitivedanger()
+  {
+    //Old_code(FOR_DOWN)
+     //SET Priority  -> 2
+                     -> (Remove the condition)
+                     -> 3
+     //Add this condition
+     if(g_master_grid[predictive_danger_pos_x+1][predictive_danger_pos_y].predictive_danger_count > 0 &&
+       g_our_player_danger [predictive_danger_pos_x][predictive_danger_pos_y].our_player_count == 0 && 
+       (checkEscapePaththere(predictive_danger_pos_x+1,predictive_danger_pos_y,PlayerMove[0])>0))
+                     {
+                       priority[0] = 4;
+                       bombstatus[0] = 1;
+                     }
+      if(g_master_grid[predictive_danger_pos_x+1][predictive_danger_pos_y].predictive_danger_count == 0 &&
+       g_our_player_danger [predictive_danger_pos_x][predictive_danger_pos_y].our_player_count == 0 && 
+       (checkEscapePaththere(predictive_danger_pos_x+1,predictive_danger_pos_y,PlayerMove[0])>0))
+                     {
+                       priority[0] = 4.5;
+                       bombstatus[0] = 1;
+                     } 
+    
+      if(g_master_grid[predictive_danger_pos_x+1][predictive_danger_pos_y].predictive_danger_count > 1 &&
+       g_our_player_danger [predictive_danger_pos_x][predictive_danger_pos_y].our_player_count == 0 && 
+       g_our_player_danger [predictive_danger_pos_x+1][predictive_danger_pos_y].our_player_count == 0 &&
+       (checkpaththereforContinuosBombing(predictive_danger_pos_x+1,predictive_danger_pos_y)>0))
+                     {
+                       priority[0] = 5;
+                       bombstatus[0] = 1;
+                     } 
+       if(g_master_grid[predictive_danger_pos_x+1][predictive_danger_pos_y].predictive_danger_count > 0 &&
+       g_our_player_danger [predictive_danger_pos_x][predictive_danger_pos_y].our_player_count == 0 && 
+       (checkEscapePaththere(predictive_danger_pos_x+1,predictive_danger_pos_y,PlayerMove[0])>0) &&
+         g_master_grid[predictive_danger_pos_x+1][predictive_danger_pos_y].predictive_danger_count > 1)
+                     {
+                       priority[0] = 5.5;
+                       bombstatus[0] = 1;
+                     }
+    
+        
+       if(g_master_grid[predictive_danger_pos_x+1][predictive_danger_pos_y].predictive_danger_count == 0 &&
+       g_our_player_danger [predictive_danger_pos_x][predictive_danger_pos_y].our_player_count == 0 && 
+       (checkEscapePaththere(predictive_danger_pos_x+1,predictive_danger_pos_y,PlayerMove[0])>0) &&
+        g_master_grid[predictive_danger_pos_x+1][predictive_danger_pos_y].predictive_danger_count > 1)
+                     {
+                       priority[0] = 6;
+                       bombstatus[0] = 1;
+                     } 
+    
+       if(g_master_grid[predictive_danger_pos_x+1][predictive_danger_pos_y].predictive_danger_count > 1 &&
+       g_our_player_danger [predictive_danger_pos_x][predictive_danger_pos_y].our_player_count == 0 && 
+       g_our_player_danger [predictive_danger_pos_x+1][predictive_danger_pos_y].our_player_count == 0 &&
+       (checkpaththereforContinuosBombing(predictive_danger_pos_x+1,predictive_danger_pos_y)>0) &&
+       g_master_grid[predictive_danger_pos_x+1][predictive_danger_pos_y].predictive_danger_count > 1)
+                     {
+                       priority[0] = 7;
+                       bombstatus[0] = 1;
+                     } 
+  }
  
   
       
