@@ -1,7 +1,11 @@
 
 #Add it after possible moves line in checkOurPlayerinDanger method
-if(g_master_grid[danger_position_x][danger_position_y].placedBy == g_our_player)
+if(g_master_grid[danger_position_x][danger_position_y].placedBy == g_opp_player)
 {
+ //old code 
+}
+//Add this line before declaration of int final priority = 0;
+else{
   if(possible_moves  & down && isAlive)
   {
     PlayerMove[0] = CLI_DIR_DOWN;
@@ -109,6 +113,7 @@ if(g_master_grid[danger_position_x][danger_position_y].placedBy == g_our_player)
       bombstatus[3] = 1;
     }
   }
+ 
   
       
       
